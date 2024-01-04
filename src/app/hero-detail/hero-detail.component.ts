@@ -5,6 +5,7 @@ import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeroService } from '../hero.service';
+import { Observable } from 'rxjs';
 
 @Component({
   standalone: true, 
@@ -35,6 +36,7 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
 
   save(): void{
     if (this.hero){
