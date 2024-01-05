@@ -3,19 +3,16 @@
   <input id = "new-hero" #heroName/>
 </div>
 
-<button type = "button" class = "add-button" (click) = "add(heroName.value); heroName.value='' ">
-  Add hero 
-</button>
+
 
 <div>
   <label for = "new-hero">Hero city: </label>
   <input id = "new-hero" #heroCity/>
 </div>
 
-<button type = "button" class = "add-button" >
-  Add city
+<button type = "button" class = "add-button" (click) = "add(heroName.value, heroCity.value); heroName.value=''; heroCity.value=''">
+  Add hero 
 </button>
-
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
