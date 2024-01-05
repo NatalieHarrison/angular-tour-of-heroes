@@ -7,14 +7,21 @@
   Add hero 
 </button>
 
+<div>
+  <label for = "new-hero">Hero city: </label>
+  <input id = "new-hero" #heroCity/>
+</div>
+
+<button type = "button" class = "add-button" >
+  Add city
+</button>
+
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span class="badge">{{hero.id}}</span> {{hero.name}} | {{hero.city}}
     </a>
     <button type ="button" class="delete" title="delete hero" (click)="delete(hero)" >X</button>
   </li>
 </ul>
-
-
