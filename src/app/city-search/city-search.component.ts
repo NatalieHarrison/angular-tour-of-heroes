@@ -15,8 +15,8 @@ import { HeroService } from '../hero.service';
   styleUrl: './city-search.component.css'
 })
 export class CitySearchComponent {
-  heroes$!: Observable<Hero[]>;
-  private searchTerms = new Subject<string>();
+  heroes$!: Observable<Hero[]>; //produce an array of Hero objects based off the search 
+  private searchTerms = new Subject<string>(); //subjects send and receive values 
 
   constructor(private heroService: HeroService) {}
 
@@ -37,5 +37,4 @@ export class CitySearchComponent {
       switchMap((term: string) => this.heroService.searchHeroesCity(term)),
     );
   }
-
 }
