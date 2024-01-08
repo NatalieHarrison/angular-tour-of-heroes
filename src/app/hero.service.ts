@@ -67,6 +67,20 @@ export class HeroService {
     );
   }
 
+    /* GET heroes whose city contains search term */
+    searchHeroesCity(term: string): Observable<Hero[]> {
+      if (!term.trim()) {
+        // if not search term, return empty hero array.
+        return of([]);
+      }
+      return this.http.get<Hero[]>(`${this.heroesUrl}/?city=${term}`).pipe(
+        tap(x => x.length ?
+           this.log(`found heroes living in  "${term}"`) :
+           this.log(`no heroes living in "${term}"`)),
+        catchError(this.handleError<Hero[]>('searchHeroesCity', []))
+      );
+    }
+
   //////// Save methods //////////
 
   /** POST: add a new hero to the server */
