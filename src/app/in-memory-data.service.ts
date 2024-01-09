@@ -18,6 +18,19 @@ export class InMemoryDataService implements InMemoryDataService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' }
     ];
+
+    const cities = [
+      { id: 1, city: 'Boston'},
+      { id: 2, city: 'New York' },
+      { id: 3, city: 'Washington DC' },
+      { id: 4, city: 'Atlanta'},
+      { id: 5, city: 'Orlando' },
+      { id: 6, city: 'Miami'},
+      { id: 7, city: 'Austin'},
+      { id: 8, city: 'Denver'},
+      { id: 9, city: 'Seattle'},
+      { id: 10, city: 'Las Vegas'}
+    ]
     return {heroes};
   }
 
