@@ -1,1 +1,10 @@
 <p>cities works!</p>
+<h2>My Cities</h2>
+<ul class="cities">
+  <li *ngFor = "let city of cities">
+    <button type="button">
+      <span class="badge">{{city.id}}</span>
+      <span class="name">{{city.name}}</span>
+    </button>
+  </li>
+</ul>
