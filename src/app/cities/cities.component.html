@@ -1,7 +1,3 @@
-<p>cities works!</p>
-<h2>My Cities</h2>
-
-
 <div>
   <label for = "new-city"> City name: </label>
   <input id = "new-city" #cityName/>
@@ -12,11 +8,10 @@ Add City
 </button> 
 
 <ul class = "cities">
-  <li *ngFor = "let city of cities">
-    <span class = "badge"> {{city.id}} </span> {{city.name}}
-    <button type = "button" class = "delete-button" title= "delete city" (click)="delete(city)">X</button>
+  <li *ngFor="let city of cities">
+    <a routerLink="/citydetail/{{city.id}}">
+      <span class = "badge"> {{city.id}} </span> {{city.name}}
+    </a>
+    <button type = "button" class = "delete" title= "delete city" (click)="delete(city)">X</button>
   </li>
-
 </ul>
-
-

@@ -15,6 +15,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { CitiesComponent } from './cities/cities.component';
+import { CityDetailComponent } from './city-detail/city-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CitiesComponent } from './cities/cities.component';
     DashboardComponent,
     HeroesComponent,
     HeroSearchComponent,
-    CitiesComponent
+    CitiesComponent,
+    CityDetailComponent
   ],
   imports: [
     BrowserModule,
