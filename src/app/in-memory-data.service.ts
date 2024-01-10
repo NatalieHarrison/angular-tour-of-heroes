@@ -20,18 +20,18 @@ export class InMemoryDataService implements InMemoryDataService {
     ];
 
     const cities = [
-      { id: 1, city: 'Boston'},
-      { id: 2, city: 'New York' },
-      { id: 3, city: 'Washington DC' },
-      { id: 4, city: 'Atlanta'},
-      { id: 5, city: 'Orlando' },
-      { id: 6, city: 'Miami'},
-      { id: 7, city: 'Austin'},
-      { id: 8, city: 'Denver'},
-      { id: 9, city: 'Seattle'},
-      { id: 10, city: 'Las Vegas'}
+      { id: 1, name: 'Boston'},
+      { id: 2, name: 'New York' },
+      { id: 3, name: 'Washington DC' },
+      { id: 4, name: 'Atlanta'},
+      { id: 5, name: 'Orlando' },
+      { id: 6, name: 'Miami'},
+      { id: 7, name: 'Austin'},
+      { id: 8, name: 'Denver'},
+      { id: 9, name: 'Seattle'},
+      { id: 10, name: 'Las Vegas'},
     ]
-    return {heroes};
+    return {heroes, cities};
   }
 
     // Overrides the genId method to ensure that a hero always has an id.

@@ -1,27 +1,23 @@
 <p>cities works!</p>
 <h2>My Cities</h2>
-<ul class="cities">
+
+<!-- 
+<div>
+  <label for = "new-city"> City name: </label>
+  <input id = "new-city" #cityName/>
+</div>
+
+<button type = "button" class = "add-button" (click)="add(cityName.value); cityName.value=''">
+Add City
+</button> -->
+
+<ul class = "cities">
   <li *ngFor = "let city of cities">
-    <button type="button" (click) = "onSelect(city)">
-      <span class="badge">{{city.id}}</span>
-      <span class="name">{{city.name}}</span>
-    </button>
+    <span class = "badge"> {{city.id}} </span> {{city.name}}
+ 
+
   </li>
+
 </ul>
 
-  <div *ngIf = "selectedCity">
 
-    <h2>Heroes in {{selectedCity.name}} </h2>
-    <!-- <div>
-      <ul class="heroes">
-        <li *ngFor="let hero of heroes">
-          <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-          </a>
-          <button type ="button" class="delete" title="delete hero" (click)="delete(hero)" >X</button>
-        </li>
-      </ul>
-      
-    </div> -->
-
-  </div>
