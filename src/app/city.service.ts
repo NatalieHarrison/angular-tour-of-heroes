@@ -27,7 +27,7 @@ export class CityService {
         catchError(this.handleError<City[]>('getCities', []))
       );
   }
-  /** GET hero by id. Return `undefined` when id not found */
+  /** GET city by id. Return `undefined` when id not found */
   getCityNo404<Data>(id: number): Observable<City> {
     const url = `${this.citiesUrl}/?id=${id}`;
     return this.http.get<City[]>(url)
@@ -42,7 +42,7 @@ export class CityService {
   }
 
 
-  /** GET hero by id. Will 404 if id not found */
+  /** GET city by id. Will 404 if id not found */
   getCity(id: number): Observable<City> {
     const url = `${this.citiesUrl}/${id}`;
     return this.http.get<City>(url).pipe(
