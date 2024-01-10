@@ -14,8 +14,7 @@ Add City
 <ul class = "cities">
   <li *ngFor = "let city of cities">
     <span class = "badge"> {{city.id}} </span> {{city.name}}
- 
-
+    <button type = "button" class = "delete-button" title= "delete city" (click)="delete(city)">X</button>
   </li>
 
 </ul>

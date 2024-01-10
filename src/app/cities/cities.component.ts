@@ -31,4 +31,9 @@ export class CitiesComponent {
       this.cities.push(city)
     })
   }
+
+  delete(city:City): void{
+    this.cities = this.cities.filter(c => c !== city);
+    this.cityService.deleteCity(city.id).subscribe();
+  }
 }

@@ -59,6 +59,24 @@ export class CityService {
     )
   }
 
+  deleteCity(id: number): Observable<City> {
+    const url = `${this.citiesUrl}/${id}`;
+
+    return this.http.delete<City>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted City id=${id}`)),
+      catchError(this.handleError<City>('deleteHero'))
+    );
+  }
+
+  /** PUT: update the city on the server */
+  updateCity(city:City): Observable<any> {
+    return this.http.put(this.citiesUrl, city, this.httpOptions).pipe(
+      tap( _ => this.log('updated city id=${city.id}')),
+      catchError(this.handleError<any>('updatedcity'))
+    );
+  }
+
+
     /**
    * Handle Http operation that failed.
    * Let the app continue.
