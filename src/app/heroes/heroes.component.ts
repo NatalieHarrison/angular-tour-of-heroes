@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { City } from '../city';
 
 @Component({
   selector: 'app-heroes',
@@ -9,9 +10,10 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
-
-
-
+  selectedCity: { name: string; id: number } = { name: '', id: 0 }; // Track the selected city
+  onCitySelected(city: { name: string; id: number }): void {
+    this.selectedCity = city;
+  }
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
@@ -23,10 +25,10 @@ export class HeroesComponent implements OnInit {
     .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(name: string ): void {
+  add(name: string, cityName: string, cityID: number ): void {
     name = name.trim();
     if (!name ) { return; }
-    this.heroService.addHero( { name } as Hero)
+    this.heroService.addHero( { name, city: {name: cityName, id: cityID} } as Hero)
     .subscribe(hero => {
       this.heroes.push(hero)
     })

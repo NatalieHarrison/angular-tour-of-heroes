@@ -3,9 +3,9 @@
   <input id = "new-hero" #heroName/>
 </div>
 
-<app-city-search></app-city-search>
+<app-city-search  #citySearch (citySelected)="onCitySelected($event)"></app-city-search>
 
-<button type = "button" class = "add-button" (click) = "add(heroName.value); heroName.value='' ">
+<button type = "button" class = "add-button" (click) = "add(heroName.value, selectedCity.name, selectedCity.id ); heroName.value=''; citySearch.searchBoxValue = '' ">
   Add hero 
 </button>
 
@@ -13,7 +13,7 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span class="badge">{{hero.id}}</span> {{hero.name}} | {{hero.city.name}}
     </a>
     <button type ="button" class="delete" title="delete hero" (click)="delete(hero)" >X</button>
   </li>
