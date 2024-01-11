@@ -16,6 +16,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { CitiesComponent } from './cities/cities.component';
 import { CityDetailComponent } from './city-detail/city-detail.component';
+import { CitySearchComponent } from './city-search/city-search.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CityDetailComponent } from './city-detail/city-detail.component';
     HeroesComponent,
     HeroSearchComponent,
     CitiesComponent,
-    CityDetailComponent
+    CityDetailComponent,
+    CitySearchComponent
   ],
   imports: [
     BrowserModule,

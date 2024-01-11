@@ -76,6 +76,20 @@ export class CityService {
     );
   }
 
+  /* GET heroes whose name contains search term */
+  searchCities(term: string): Observable<City[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<City[]>(`${this.citiesUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+         this.log(`found cities matching "${term}"`) :
+         this.log(`no cities matching "${term}"`)),
+      catchError(this.handleError<City[]>('searchCities', []))
+    );
+  }
+
 
     /**
    * Handle Http operation that failed.
@@ -102,4 +116,5 @@ export class CityService {
     private log(message: string) {
       this.messageService.add(`HeroService: ${message}`);
     }
+
 }
