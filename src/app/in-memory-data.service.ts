@@ -40,7 +40,7 @@ export class InMemoryDataService implements InMemoryDataService {
       { id: 5 , name: 'Shape-Shifting'},
       { id: 6, name: 'Telekinesis'},
     ]
-    return {heroes, cities};
+    return {heroes, cities, powers};
   }
 
     // Overrides the genId method to ensure that a hero always has an id.
