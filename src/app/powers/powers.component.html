@@ -13,6 +13,7 @@
     <a routerLink="/powerdetail/{{power.id}}">
       <span class ="badge">{{power.id}}</span> {{power.name}}
     </a>
+    <button type = "button" class = "delete" title= "delete power" (click)="delete(power)">X</button>
 
 
   </li>

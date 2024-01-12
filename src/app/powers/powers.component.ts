@@ -28,5 +28,10 @@ export class PowersComponent {
       this.powers.push(power)
     })
   }
+
+  delete(power: Power): void{
+    this.powers = this.powers.filter(p => p !== power);
+    this.powerService.deletePower(power.id).subscribe();
+  }
   
 }

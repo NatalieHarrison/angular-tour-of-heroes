@@ -58,14 +58,23 @@ export class PowerService {
     )
   }
 
+  deletePower(id: number): Observable<Power> {
+    const url = `${this.powersUrl}/${id}`;
+
+    return this.http.delete<Power>(url, this.httpOptions).pipe(
+      tap( _ => this.log('deleted Power id=${id')),
+      catchError(this.handleError<any>('updatedPower'))
+    )
+  }
+
   /** PUT update the power on the server */
   updatePower(power:Power): Observable<any>{
     return this.http.put(this.powersUrl, power, this.httpOptions).pipe(
       tap( _ => this.log('updated power id=${power.id}')),
       catchError(this.handleError<any>('updatedpower'))
     )
-
   }
+
 
 
       /**
