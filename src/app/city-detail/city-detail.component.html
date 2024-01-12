@@ -1,3 +1,8 @@
 <div *ngIf="city">
   <h2>{{city.name}}</h2>
+  <div *ngFor="let hero of heroes">
+    <div *ngIf = "hero.city.name === city.name" >
+      <h4>{{hero.name}}</h4>
+    </div>
+  </div>
 </div>

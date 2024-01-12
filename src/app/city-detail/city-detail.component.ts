@@ -6,6 +6,8 @@ import { City } from '../city';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { Hero } from '../hero';
+import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'app-city-detail',
@@ -14,15 +16,19 @@ import { FormsModule } from '@angular/forms';
 })
 export class CityDetailComponent {
   city: City | undefined;
+  heroes: Hero[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private cityService: CityService,
+    private heroService: HeroService,
     private location: Location
   ){}
 
   ngOnInit(): void{
     this.getCity();
+    this.getHeroes();
+
   }
 
   getCity(): void{
@@ -31,5 +37,9 @@ export class CityDetailComponent {
       .subscribe(city => this.city = city);
   }
 
+  getHeroes(): void{
+    this.heroService.getHeroes()
+    .subscribe(heroes => this.heroes = heroes);
+  }
 
 }
