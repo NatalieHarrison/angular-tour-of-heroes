@@ -30,6 +30,15 @@ export class InMemoryDataService implements InMemoryDataService {
       { id: 8, name: 'Denver'},
       { id: 9, name: 'Seattle'},
       { id: 10, name: 'Las Vegas'},
+    ];
+
+    const powers = [
+      { id: 1 , name: 'Invisibility'},
+      { id: 2, name: 'Super Strength' },
+      { id: 3, name: 'Teleportation'},
+      { id: 4, name: 'Time Manipulation'},
+      { id: 5 , name: 'Shape-Shifting'},
+      { id: 6, name: 'Telekinesis'},
     ]
     return {heroes, cities};
   }
