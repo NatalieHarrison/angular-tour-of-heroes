@@ -9,11 +9,26 @@
 
     <div>
       <label for="hero-name">City name: </label>
-      <input id="hero-name" [(ngModel)]="hero.city.name" placeholder="name">
+      <input type="text"
+    placeholder="Pick one"
+    aria-label="Number"
+    matInput
+    [formControl]="myControl"
+    [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (city of cities; track city) {
+        <mat-option [value]="city.name" >{{city.name}}</mat-option>
+      }
+    </mat-autocomplete>
+      <!-- <input id="hero-name" [(ngModel)]="hero.city.name" placeholder="name"> -->
     </div>
     <button type="button" (click)="goBack()">go back</button>
     <button type = "button" (click) = "save" > save </button>
+    
+  
+  
   </div>
+
 
 
   
