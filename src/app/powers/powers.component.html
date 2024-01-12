@@ -4,16 +4,16 @@
   <input id= "new-power" #powerName/> 
 </div>
 
-<!-- <button type ="button" class="add-button" (click)="add(powerName.value); powerName.value='' ">
-
-</button> -->
+<button type ="button" class="add-button" (click)="add(powerName.value); powerName.value='' ">
+  Add Power
+</button>
 
 <ul class="powers">
   <li *ngFor="let power of powers">
     <a routerLink="/powerdetail/{{power.id}}">
       <span class ="badge">{{power.id}}</span> {{power.name}}
     </a>
-    
+
 
   </li>
 

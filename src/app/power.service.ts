@@ -50,6 +50,24 @@ export class PowerService {
     );
   }
 
+  addPower(power: Power): Observable<Power> {
+    return this.http.post<Power>(this.powersUrl,power,this.httpOptions)
+    .pipe(
+      tap((newPower:Power) => this.log('added power w/ id=${newPower.id}')),
+      catchError(this.handleError<Power>('addPower'))
+    )
+  }
+
+  /** PUT update the power on the server */
+  updatePower(power:Power): Observable<any>{
+    return this.http.put(this.powersUrl, power, this.httpOptions).pipe(
+      tap( _ => this.log('updated power id=${power.id}')),
+      catchError(this.handleError<any>('updatedpower'))
+    )
+
+  }
+
+
       /**
    * Handle Http operation that failed.
    * Let the app continue.

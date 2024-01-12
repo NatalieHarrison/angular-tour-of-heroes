@@ -19,8 +19,14 @@ export class PowersComponent {
     this.powerService.getPowers()
     .subscribe(powers => this.powers = powers );
   }
+
+  add(name:string):void {
+    name = name.trim();
+    if ( !name ) { return; }
+    this.powerService.addPower( { name } as Power)
+    .subscribe(power => {
+      this.powers.push(power)
+    })
+  }
   
-
-
-
 }
