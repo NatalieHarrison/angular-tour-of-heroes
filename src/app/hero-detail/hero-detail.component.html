@@ -13,6 +13,7 @@
     placeholder= {{hero.city.name}}
     aria-label="Number"
     matInput
+    [(ngModel)]="hero.city.name"
     [formControl]="myControl"
     [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete">
@@ -23,7 +24,7 @@
       <!-- <input id="hero-name" [(ngModel)]="hero.city.name" placeholder="name"> -->
     </div>
     <button type="button" (click)="goBack()">go back</button>
-    <button type = "button" (click) = "save()" > save </button>
+    <button type = "button" (click)="save()" > save </button>
     
   
   
