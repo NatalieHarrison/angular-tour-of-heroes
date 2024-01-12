@@ -5,12 +5,7 @@
   padding: 0;
   width: 15em;
 }
-label {
-  display: block;
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  margin-bottom: .5rem;
-}
+
 input {
   display: block;
   width: 100%;
@@ -80,7 +75,7 @@ input {
 
 button.delete {
   position: absolute;
-  left: 210px;
+  left: 220px;
   top: 5px;
   background-color: white;
   color:  #525252;
