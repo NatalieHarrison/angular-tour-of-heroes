@@ -1,8 +1,14 @@
 <div *ngIf="city">
   <h2>{{city.name}}</h2>
-  <div *ngFor="let hero of heroes">
-    <div *ngIf = "hero.city.name === city.name" >
-      <h4>{{hero.name}}</h4>
+  
+  <ul class = "heroes">
+    <div *ngFor="let hero of heroes">
+      <div *ngIf="hero.city.name === city.name">
+        <a routerLink="/detail/{{hero.id}}">
+          <span class="badge">{{hero.id}}</span> {{hero.name}} 
+        </a>
+      </div>
     </div>
-  </div>
+  </ul>
+  
 </div>
