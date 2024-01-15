@@ -22,7 +22,6 @@ export class CityDetailComponent {
     private route: ActivatedRoute,
     private cityService: CityService,
     private heroService: HeroService,
-    private location: Location
   ){}
 
   ngOnInit(): void{
