@@ -9,10 +9,12 @@ import { Power } from './power';
   providedIn: 'root'
 })
 export class PowerService {
+
   private powersUrl = 'api/powers'
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
+  
   constructor(
     private http: HttpClient, 
     private messageService: MessageService
@@ -67,15 +69,13 @@ export class PowerService {
     )
   }
 
-  /** PUT update the power on the server */
+  /** PUT update the power on the server when user makes an edit to power name*/
   updatePower(power:Power): Observable<any>{
     return this.http.put(this.powersUrl, power, this.httpOptions).pipe(
       tap( _ => this.log('updated power id=${power.id}')),
       catchError(this.handleError<any>('updatedpower'))
     )
   }
-
-
 
       /**
    * Handle Http operation that failed.

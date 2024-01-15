@@ -14,8 +14,9 @@ import { PowerService } from '../power.service';
   imports: [MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, ReactiveFormsModule]
 })
 export class PowerSearchComponent {
-  powers: Power[] = [];
-  powersForm = new FormControl('');
+  powers: Power[] = []; //getting the powers from the Power data
+  powersForm = new FormControl([]); //when no value is selected, it's an empty array. When a value is selected it should look like powers: [{id:2, name: 'super strength}, ]
+ 
 
   constructor(
     private powerService: PowerService
