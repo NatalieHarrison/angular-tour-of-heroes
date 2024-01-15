@@ -4,7 +4,7 @@
 </div>
 
 <app-city-search  #citySearch (citySelected)="onCitySelected($event)"></app-city-search>
-
+<app-power-search> </app-power-search>
 <button type = "button" class = "add-button" (click) = "add(heroName.value, selectedCity.name, selectedCity.id ); heroName.value=''; citySearch.searchBoxValue = '' ">
   Add hero 
 </button>

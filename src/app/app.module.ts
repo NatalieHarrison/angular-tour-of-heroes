@@ -34,13 +34,13 @@ import { PowerSearchComponent } from './power-search/power-search.component';
     CitySearchComponent,
     PowersComponent,
     PowerDetailComponent,
-    PowerSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HeroDetailComponent,
     AppRoutingModule,
+    PowerSearchComponent,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.
