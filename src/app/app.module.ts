@@ -20,6 +20,7 @@ import { CitySearchComponent } from './city-search/city-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent } from './power-detail/power-detail.component';
+import { PowerSearchComponent } from './power-search/power-search.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PowerDetailComponent } from './power-detail/power-detail.component';
     CityDetailComponent,
     CitySearchComponent,
     PowersComponent,
-    PowerDetailComponent
+    PowerDetailComponent,
+    PowerSearchComponent
   ],
   imports: [
     BrowserModule,
