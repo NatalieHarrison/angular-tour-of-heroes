@@ -31,13 +31,11 @@ export class PowerSearchComponent {
   getPowers(): void{
     this.powerService.getPowers()
     .subscribe(powers => {
-      console.log(powers)
       this.powers = powers
     });
   }
   selectionChanged(event: MatSelectChange): void {
     this.selectionChangeEvent.emit(event.value)
-    console.log(event)
   }
 
 }
