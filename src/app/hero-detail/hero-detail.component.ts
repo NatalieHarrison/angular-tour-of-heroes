@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {NgIf, UpperCasePipe} from '@angular/common';
+import {NgIf, UpperCasePipe, NgFor, CommonModule} from '@angular/common';
 import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router';
@@ -11,28 +11,34 @@ import {MatInputModule} from '@angular/material/input';
 
 import { City } from '../city';
 import { CityService } from '../city.service';
+import { PowerSearchComponent } from '../power-search/power-search.component';
+import { PowerService } from '../power.service';
+import { Power } from '../power';
 
 @Component({
   standalone: true, 
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrl: './hero-detail.component.css',
-  imports: [FormsModule, NgIf, UpperCasePipe, MatAutocompleteModule,MatInputModule, ReactiveFormsModule ],
+  imports: [FormsModule, NgIf, UpperCasePipe, MatAutocompleteModule,MatInputModule, ReactiveFormsModule, PowerSearchComponent, NgFor ],
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;
   cities: City[] = [];
+  powers: Power[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
     private cityService: CityService,
+    private powerService: PowerService,
     private location: Location
   ) {}
 
   ngOnInit(): void {
     this.getHero();
     this.getCities();
+    this.getPowers();
   }
 
   getHero(): void {
@@ -46,10 +52,14 @@ export class HeroDetailComponent implements OnInit {
     .subscribe(cities => this.cities = cities);
   }
 
+  getPowers(): void {
+    this.powerService.getPowers()
+      .subscribe(powers => this.powers = powers);
+  }
+  
   goBack(): void {
     this.location.back();
   }
-
 
   save(): void{
     if (this.hero){

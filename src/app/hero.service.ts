@@ -8,6 +8,7 @@ import { Hero } from './hero';
 import { MessageService } from './message.service';
 
 
+
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
@@ -29,6 +30,20 @@ export class HeroService {
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
+
+  // getBasicHeroInfo(): Observable<basicHeroInfo[]> {
+  //   return this.http.get<Hero[]>(this.heroesUrl).pipe(
+  //     map(heroes => {
+  //       const heroesBasicInfo: basicHeroInfo[] = [];
+  //       heroes.forEach(hero => {
+  //         heroesBasicInfo.push({name: hero.name, cityName: hero.city.name})
+  //       })
+  //       return heroesBasicInfo;
+        
+  //     })
+  //   )
+    
+  // }
 
   /** GET hero by id. Return `undefined` when id not found */
   getHeroNo404<Data>(id: number): Observable<Hero> {

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
+
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent } from './power-detail/power-detail.component';
 import { PowerSearchComponent } from './power-search/power-search.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { PowerSearchComponent } from './power-search/power-search.component';
     HeroDetailComponent,
     AppRoutingModule,
     PowerSearchComponent,
+    CommonModule,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.

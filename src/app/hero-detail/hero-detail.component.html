@@ -10,24 +10,26 @@
     <div>
       <label for="hero-name">City name: </label>
       <input type="text"
-    placeholder= {{hero.city.name}}
-    aria-label="Number"
-    matInput
-    [(ngModel)]="hero.city.name"
-    [formControl]="myControl"
-    [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      @for (city of cities; track city) {
-        <mat-option [value]="city.name" >{{city.name}}</mat-option>
-      }
-    </mat-autocomplete>
-      <!-- <input id="hero-name" [(ngModel)]="hero.city.name" placeholder="name"> -->
+      placeholder= {{hero.city.name}}
+      aria-label="Number"
+      matInput
+      [(ngModel)]="hero.city.name"
+      [formControl]="myControl"
+      [matAutocomplete]="auto">
+
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (city of cities; track city) {
+          <mat-option [value]="city.name" >{{city.name}}</mat-option>
+        }
+      </mat-autocomplete>
     </div>
+
+    Powers: 
+    <span *ngFor="let power of hero.powers">
+      <li>{{power.name}}</li>
+    </span>
     <button type="button" (click)="goBack()">go back</button>
     <button type = "button" (click)="save()" > save </button>
-    
-  
-  
   </div>
 
 
