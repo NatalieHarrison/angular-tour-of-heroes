@@ -24,13 +24,19 @@
       </mat-autocomplete>
     </div>
 
-    Powers: 
-    <span *ngFor="let power of hero.powers">
-      <li>{{power.name}}</li>
-    </span>
+    <div>
+      Powers: 
+      <span *ngFor="let power of hero.powers">
+        <li>{{power.name}}</li>
+      </span>
+
+      <!-- <app-power-search></app-power-search> -->
+
+    </div>
     <button type="button" (click)="goBack()">go back</button>
     <button type = "button" (click)="save()" > save </button>
   </div>
+
 
 
 
