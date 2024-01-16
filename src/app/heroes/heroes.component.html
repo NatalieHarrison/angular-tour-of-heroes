@@ -4,8 +4,8 @@
 </div>
 
 <app-city-search  #citySearch (citySelected)="onCitySelected($event)"></app-city-search>
-<app-power-search> </app-power-search>
-<button type = "button" class = "add-button" (click) = "add(heroName.value, selectedCity.name, selectedCity.id ); heroName.value=''; citySearch.searchBoxValue = '' ">
+<app-power-search (selectionChangeEvent)="onPowerSelected($event)"> </app-power-search>
+<button type="button" class="add-button" (click)="add(heroName.value, selectedCity, selectedPowers ); heroName.value=''; citySearch.searchBoxValue = '' ">
   Add hero 
 </button>
 
@@ -13,10 +13,17 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}} | {{hero.city.name}}
+      <span class="badge">{{hero.id}}</span> {{hero.name}} | 
+      <span *ngFor="let power of hero.powers">
+        {{power.name}}
+      </span>
+
+      <span *ngFor="let power of hero.powers">
+        {{power.name}}
+      </span>
+      
+
     </a>
     <button type ="button" class="delete" title="delete hero" (click)="delete(hero)" >X</button>
   </li>
 </ul>
-
-

@@ -1,10 +1,11 @@
 <h4>Basic mat-select</h4>
 <mat-form-field>
   <mat-label>Favorite food</mat-label>
-  <mat-select [formControl]="powersForm" multiple (selectionChange)="addNewSelect($event)">
+  <mat-select [formControl]="powersForm" multiple (selectionChange)="selectionChanged($event)">
     @for (power of powers; track power) {
       <mat-option [value]="{id: power.id, name: power.name}" >{{power.name}}</mat-option>
-    }
+    } 
+    <!-- value is used to bind the value of each mat-option -->
   </mat-select>
 </mat-form-field>
 

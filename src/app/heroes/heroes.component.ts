@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { City } from '../city';
+import { Power } from '../power';
 
 @Component({
   selector: 'app-heroes',
@@ -9,12 +10,31 @@ import { City } from '../city';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
+
+	//properties --> constructors --> lifecycle hooks --> all other methods 
   heroes: Hero[] = [];
-  selectedCity: { name: string; id: number } = { name: '', id: 0 }; // Track the selected city
+
+	constructor(private heroService: HeroService) {}
+
+	selectedPowers: Power[] = [{id: 0, name: ''}]
+
+  selectedCity: {name: string; id: number} = { 
+		name: '', 
+		id: 0 
+	}; // Track the selected city
+	
+
   onCitySelected(city: { name: string; id: number }): void {
     this.selectedCity = city;
   }
-  constructor(private heroService: HeroService) { }
+
+  onPowerSelected(powers: Power[]): void {
+    this.selectedPowers = powers;
+  }
+//   onPowerSelected(value){
+//   this.selectedPowers = power;
+// }
+
 
   ngOnInit(): void {
     this.getHeroes();
@@ -22,22 +42,26 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
+    	.subscribe(heroes => this.heroes = heroes);
   }
 
-  add(name: string, cityName: string, cityID: number ): void {
+  add(name: string, city: City, powers: Power[]): void {
     name = name.trim();
-    if (!name ) { return; }
-    this.heroService.addHero( { name, city: {name: cityName, id: cityID} } as Hero)
+    
+    if (!name) {
+      return;
+    }
+		
+    if (!powers || powers.length == 0) { return; }
+
+    this.heroService.addHero( { name, city, powers } as Hero)
     .subscribe(hero => {
       this.heroes.push(hero)
     })
   }
 
-  delete(hero: Hero):void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe();
-  }
-
-  
+	delete(hero: Hero):void {
+		this.heroes = this.heroes.filter(h => h !== hero);
+		this.heroService.deleteHero(hero.id).subscribe();
+	}
 }

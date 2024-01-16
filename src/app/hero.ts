@@ -4,5 +4,5 @@ export interface Hero {
     id: number;
     name: string;
     city : City; 
-    power: Power;
+    powers: Power[];
 }
