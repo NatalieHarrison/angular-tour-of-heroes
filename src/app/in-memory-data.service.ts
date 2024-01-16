@@ -9,14 +9,14 @@ export class InMemoryDataService implements InMemoryDataService {
   createDb() {
     const heroes = [
       { id: 12, name: 'Dr. Nice', city: {id: 1, name: 'Boston'}, powers: [{id: 1, name: 'Invisibility'},{ id: 2, name: 'New York' } ]}, 
-      { id: 13, name: 'Bombasto', city: {id: 2, name: 'New York'} },
-      { id: 14, name: 'Celeritas', city: {id: 3, name: 'Washington DC'} },
-      { id: 15, name: 'Magneta', city: {id: 4, name: 'Atlanta'} },
-      { id: 16, name: 'RubberMan',city: {id: 1, name: 'Boston'}},
-      { id: 17, name: 'Dynama' , city: {id: 6, name: 'Miami'}},
-      { id: 18, name: 'Dr. IQ', city: {id: 1, name: 'Boston'} },
-      { id: 19, name: 'Magma', city: {id: 7, name: 'Austin'} },
-      { id: 20, name: 'Tornado', city: {id: 8, name: 'Seattle'} },
+      { id: 13, name: 'Bombasto', city: {id: 2, name: 'New York'}, powers: [{ id: 4, name: 'Time Manipulation'},{ id: 1 , name: 'Invisibility'}, ] },
+      { id: 14, name: 'Celeritas', city: {id: 3, name: 'Washington DC'}, powers: [{ id: 5 , name: 'Shape-Shifting'},] },
+      { id: 15, name: 'Magneta', city: {id: 4, name: 'Atlanta'}, powers: [{ id: 6, name: 'Telekinesis'},{ id: 3, name: 'Teleportation'},{ id: 4, name: 'Time Manipulation'},  ]},
+      { id: 16, name: 'RubberMan',city: {id: 1, name: 'Boston'}, powers: [{ id: 4, name: 'Time Manipulation'},] },
+      { id: 17, name: 'Dynama' , city: {id: 6, name: 'Miami'}, powers: [{ id: 1 , name: 'Invisibility'},] },
+      { id: 18, name: 'Dr. IQ', city: {id: 1, name: 'Boston'}, powers: [{ id: 2, name: 'Super Strength' },] },
+      { id: 19, name: 'Magma', city: {id: 7, name: 'Austin'}, powers: [{ id: 3, name: 'Teleportation'},] },
+      { id: 20, name: 'Tornado', city: {id: 8, name: 'Seattle'}, powers: [{ id: 4, name: 'Time Manipulation'},] },
     ];
 
     const cities = [
