@@ -23,7 +23,6 @@ import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent } from './power-detail/power-detail.component';
 import { PowerSearchComponent } from './power-search/power-search.component';
 import { CommonModule } from '@angular/common';
-import { EditPowerSearchComponent } from './edit-power-search/edit-power-search.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +43,6 @@ import { EditPowerSearchComponent } from './edit-power-search/edit-power-search.
     HeroDetailComponent,
     AppRoutingModule,
     PowerSearchComponent,
-    EditPowerSearchComponent,
     CommonModule,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
