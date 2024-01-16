@@ -14,13 +14,14 @@ import { CityService } from '../city.service';
 import { PowerSearchComponent } from '../power-search/power-search.component';
 import { PowerService } from '../power.service';
 import { Power } from '../power';
+import { EditPowerSearchComponent } from '../edit-power-search/edit-power-search.component';
 
 @Component({
   standalone: true, 
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrl: './hero-detail.component.css',
-  imports: [FormsModule, NgIf, UpperCasePipe, MatAutocompleteModule,MatInputModule, ReactiveFormsModule, PowerSearchComponent, NgFor ],
+  imports: [FormsModule, NgIf, UpperCasePipe, MatAutocompleteModule,MatInputModule, ReactiveFormsModule, PowerSearchComponent, NgFor, EditPowerSearchComponent ],
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;
