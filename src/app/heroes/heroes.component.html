@@ -3,9 +3,9 @@
   <input id = "new-hero" #heroName/>
 </div>
 
-<app-city-search  #citySearch (citySelected)="onCitySelected($event)"></app-city-search>
+<!-- <app-city-search  #citySearch (citySelected)="onCitySelected($event)"></app-city-search> -->
 <app-power-search (selectionChangeEvent)="onPowerSelected($event)"> </app-power-search>
-<button type="button" class="add-button" (click)="add(heroName.value, selectedCity, selectedPowers ); heroName.value=''; citySearch.searchBoxValue = '' ">
+<button type="button" class="add-button" (click)="add(heroName.value, selectedPowers ); heroName.value='';  ">
   Add hero 
 </button>
 

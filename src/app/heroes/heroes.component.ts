@@ -45,7 +45,7 @@ export class HeroesComponent implements OnInit {
     	.subscribe(heroes => this.heroes = heroes);
   }
 
-  add(name: string, city: City, powers: Power[]): void {
+  add(name: string, powers: Power[]): void {
     name = name.trim();
     
     if (!name) {
@@ -54,7 +54,7 @@ export class HeroesComponent implements OnInit {
 		
     if (!powers || powers.length == 0) { return; }
 
-    this.heroService.addHero( { name, city, powers } as Hero)
+    this.heroService.addHero( { name, powers } as Hero)
     .subscribe(hero => {
       this.heroes.push(hero)
     })

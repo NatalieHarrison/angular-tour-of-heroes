@@ -9,25 +9,26 @@ import { CityService } from '../city.service';
   styleUrl: './city-search.component.css'
 })
 export class CitySearchComponent {
-  @Input() searchBoxValue: string = ''; //Input property for binding 
-  @Output() citySelected = new EventEmitter<{ name: string; id: number }>(); // Emit an object with name and id
-  cities$!: Observable<City[]>; //
+  cities$!: Observable<City[]>;
   private searchTerms = new Subject<string>();
 
   constructor(private cityService: CityService) {}
 
-  // method called when user types into search input. Pushes term into observable stream 
-  search(term:string): void{
+  // Push a search term into the observable stream.
+  search(term: string): void {
     this.searchTerms.next(term);
   }
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.cities$ = this.searchTerms.pipe(
-      debounceTime(300), distinctUntilChanged(), switchMap((term: string) => this.cityService.searchCities(term)),
-    );
-  }
+      // wait 300ms after each keystroke before considering the term
+      debounceTime(300),
 
-  selectCity(city: City): void {
-    this.citySelected.emit({ name: city.name, id: city.id });
+      // ignore new term if same as previous term
+      distinctUntilChanged(),
+
+      // switch to new search observable each time the term changes
+      switchMap((term: string) => this.cityService.searchCities(term)),
+    );
   }
 }

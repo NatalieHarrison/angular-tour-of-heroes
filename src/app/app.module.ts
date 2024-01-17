@@ -23,6 +23,7 @@ import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent } from './power-detail/power-detail.component';
 import { PowerSearchComponent } from './power-search/power-search.component';
 import { CommonModule } from '@angular/common';
+import { CitySelectComponent } from './city-select/city-select.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CommonModule } from '@angular/common';
     CitySearchComponent,
     PowersComponent,
     PowerDetailComponent,
+    CitySelectComponent,
   ],
   imports: [
     BrowserModule,
