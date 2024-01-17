@@ -1,12 +1,10 @@
 <div id="search-component">
-  <label>City Search</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <label for="search-box">Hero City</label>
+  <input [(ngModel)]="searchBoxValue" id="search-box" (input)="search(searchBoxValue)" value="selectCity" />
 
   <ul class="search-result">
     <li *ngFor="let city of cities$ | async" >
-      <a routerLink="/citydetail/{{city.id}}">
-        {{city.name}}
-      </a>
+       <button type = "button" class = "add-button" (click) = "selectCity(city); searchBoxValue = city.name" > {{city.name}}</button>
     </li>
   </ul>
 </div>
