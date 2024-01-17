@@ -13,16 +13,7 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}} | 
-      <span *ngFor="let power of hero.powers">
-        {{power.name}}
-      </span>
-
-      <span *ngFor="let power of hero.powers">
-        {{power.name}}
-      </span>
-      
-
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
     <button type ="button" class="delete" title="delete hero" (click)="delete(hero)" >X</button>
   </li>
