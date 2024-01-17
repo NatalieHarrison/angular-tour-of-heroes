@@ -23,6 +23,7 @@ import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent } from './power-detail/power-detail.component';
 import { PowerSearchComponent } from './power-search/power-search.component';
 import { CommonModule } from '@angular/common';
+import { AddPowerComponent } from './add-power/add-power.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     PowerSearchComponent,
     CommonModule,
+    AddPowerComponent,
     HttpClientModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
 // and returns simulated server responses.
