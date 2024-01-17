@@ -1,4 +1,14 @@
 <div *ngIf="power">
   <h2> {{power.name}}</h2>
+  <div *ngFor="let hero of heroes">
+      <div *ngFor="let powerItem of hero.powers">
+        <!-- {{powerItem.name}} -->
+        <div *ngIf="powerItem.name === power.name">
+            {{hero.name}}
+        </div>
+
+        
+        
+  </div>
 
 </div>
