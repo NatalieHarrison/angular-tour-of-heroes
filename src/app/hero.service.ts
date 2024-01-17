@@ -92,6 +92,9 @@ export class HeroService {
     );
   }
 
+  /** DELETE: delete the hero's power from the server using filter */
+
+
   /** DELETE: delete the hero from the server */
   deleteHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
@@ -101,7 +104,7 @@ export class HeroService {
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
-
+  //* hero.power.pop or .filter */
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(

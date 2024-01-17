@@ -60,6 +60,14 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+ 
+  delete(hero: Hero, powerID: number ): void{
+    if (hero?.powers){ //if hero is not null, check if hero.powers is null
+      hero.powers = hero.powers.filter(p => p.id !== powerID);
+    }
+
+  }
+
 
   save(): void{
     if (this.hero){

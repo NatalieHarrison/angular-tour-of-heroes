@@ -27,7 +27,8 @@
     <div>
       Powers: 
       <span *ngFor="let power of hero.powers">
-        <li>{{power.name}}</li>
+        <li>{{power.name}} {{power.id}} <button type = "button" class = "delete" title= "delete power" (click) = "delete(hero, power.id)">X</button></li>
+        
       </span>
 
       <!-- <app-power-search></app-power-search> -->
