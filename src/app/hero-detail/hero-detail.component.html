@@ -30,9 +30,14 @@
         <li>{{power.name}} {{power.id}} <button type = "button" class = "delete" title= "delete power" (click) = "delete(hero, power.id)">X</button></li>
         
       </span>
+    </div>
 
-      <!-- <app-power-search></app-power-search> -->
-
+    <div>
+      Add powers:
+      <div *ngFor="let power of hero.powers">
+       
+      
+      </div>
     </div>
     <button type="button" (click)="goBack()">go back</button>
     <button type = "button" (click)="save()" > save </button>
