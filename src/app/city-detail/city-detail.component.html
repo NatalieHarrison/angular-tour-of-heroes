@@ -2,11 +2,11 @@
   <div>
     <h2>{{city.name}}</h2>
     <label> Edit City Name </label>
-    <input> 
+    <input id="city-name" [(ngModel)]="city.name" placeholder="name"> 
   </div>
 
   <button type="button" (click)="goBack()">go back</button>
-  <button type = "button"  > save </button>
+  <button type = "button" (click)="save()" > save </button>
 
   <div>
   <label> List of Heroes living in {{city.name}}</label>

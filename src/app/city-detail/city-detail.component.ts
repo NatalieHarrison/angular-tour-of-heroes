@@ -46,4 +46,11 @@ export class CityDetailComponent {
     this.location.back()
   }
 
+  save(): void{
+    if (this.city){
+      this.cityService.updateCity(this.city)
+        .subscribe( () => this.goBack());
+    }
+  }
+
 }

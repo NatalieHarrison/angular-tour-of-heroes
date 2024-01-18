@@ -51,6 +51,20 @@ export class CityService {
     );
   }
 
+  /* GET heroes whose name contains search term */
+  searchCities(term: string): Observable<City[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<City[]>(`${this.citiesUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+          this.log(`found cities matching "${term}"`) :
+          this.log(`no cities matching "${term}"`)),
+      catchError(this.handleError<City[]>('searchCities', []))
+    );
+  }
+
   addCity(city: City): Observable<City> {
     return this.http.post<City>(this.citiesUrl, city, this.httpOptions)
     .pipe(
@@ -69,26 +83,13 @@ export class CityService {
   }
 
   /** PUT: update the city on the server */
-  updateCity(city:City): Observable<any> {
+  updateCity(city: City): Observable<any> {
     return this.http.put(this.citiesUrl, city, this.httpOptions).pipe(
-      tap( _ => this.log('updated city id=${city.id}')),
+      tap(_ => this.log(`updated city id=${city.id}`)),
       catchError(this.handleError<any>('updatedcity'))
     );
   }
 
-  /* GET heroes whose name contains search term */
-  searchCities(term: string): Observable<City[]> {
-    if (!term.trim()) {
-      // if not search term, return empty hero array.
-      return of([]);
-    }
-    return this.http.get<City[]>(`${this.citiesUrl}/?name=${term}`).pipe(
-      tap(x => x.length ?
-         this.log(`found cities matching "${term}"`) :
-         this.log(`no cities matching "${term}"`)),
-      catchError(this.handleError<City[]>('searchCities', []))
-    );
-  }
 
 
     /**
