@@ -14,13 +14,13 @@
 
     </div>
 
-    <div>
-      <label for="hero-name">Powers: </label>
-      <span *ngFor="let power of hero.powers">
-        <li>{{power.name}} {{power.id}} <button type = "button" class = "delete" title= "delete power" (click) = "delete(hero, power.id)">X</button></li>
-        
-      </span>
-    </div>
+
+    <ul class="heroes">
+      <li *ngFor="let power of hero.powers">
+          <span class="badge">{{power.id}}</span> {{power.name}}
+        <button type ="button" class="delete" title="delete hero" (click)="delete(hero, power.id)" >X</button>
+      </li>
+    </ul>
 
     <div>
       Add powers:
