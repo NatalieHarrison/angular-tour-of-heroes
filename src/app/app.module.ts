@@ -24,7 +24,9 @@ import { PowerDetailComponent } from './power-detail/power-detail.component';
 import { PowerSearchComponent } from './power-search/power-search.component';
 import { CommonModule } from '@angular/common';
 import { CitySelectComponent } from './city-select/city-select.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { Output, EventEmitter } from '@angular/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,18 +44,17 @@ import { CitySelectComponent } from './city-select/city-select.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HeroDetailComponent,
-    AppRoutingModule,
-    PowerSearchComponent,
-    CommonModule,
     HttpClientModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-// and returns simulated server responses.
-// Remove it when a real server is ready to receive requests.
-HttpClientInMemoryWebApiModule.forRoot(
-  InMemoryDataService, { dataEncapsulation: false }
-),
-    BrowserAnimationsModule
+    MatFormFieldModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
+    CommonModule,
+    AppRoutingModule,
+    HeroDetailComponent,
+    PowerSearchComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
