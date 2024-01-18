@@ -31,9 +31,7 @@ export class HeroesComponent implements OnInit {
   onPowerSelected(powers: Power[]): void {
     this.selectedPowers = powers;
   }
-//   onPowerSelected(value){
-//   this.selectedPowers = power;
-// }
+
 
 
   ngOnInit(): void {

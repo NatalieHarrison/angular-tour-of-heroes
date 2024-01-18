@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { City } from '../city';
 import { CityService } from '../city.service';
-import {MatSelectModule} from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectChange } from '@angular/material/select';
+
 @Component({
   selector: 'app-city-select',
   templateUrl: './city-select.component.html',
@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 })
 export class CitySelectComponent {
   cities: City[] = [];
+  @Output() selectionChangeEvent =  new EventEmitter<{ name: string; id: number }>();
 
   constructor(private cityService: CityService){}
 
@@ -20,7 +21,9 @@ export class CitySelectComponent {
   getCities(): void {
     this.cityService.getCities()
       .subscribe(cities => this.cities = cities);
+  }
 
-
+  citySelectionChanged(event: MatSelectChange): void { //value emitting is the city id 
+    this.selectionChangeEvent.emit(event.value)
   }
 }

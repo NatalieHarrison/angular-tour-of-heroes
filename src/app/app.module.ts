@@ -42,9 +42,11 @@ import { Output, EventEmitter } from '@angular/core';
     CitySelectComponent,
   ],
   imports: [
+    //Angular Modules
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    //Angular Material Modules
     MatFormFieldModule,
     MatSelectModule,
     BrowserAnimationsModule,
