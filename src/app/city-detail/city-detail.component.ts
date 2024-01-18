@@ -22,6 +22,7 @@ export class CityDetailComponent {
     private route: ActivatedRoute,
     private cityService: CityService,
     private heroService: HeroService,
+    private location: Location
   ){}
 
   ngOnInit(): void{
@@ -39,6 +40,10 @@ export class CityDetailComponent {
   getHeroes(): void{
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes);
+  }
+
+  goBack(): void{
+    this.location.back()
   }
 
 }

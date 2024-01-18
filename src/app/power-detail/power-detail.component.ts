@@ -4,6 +4,7 @@ import { PowerService } from '../power.service';
 import { ActivatedRoute } from '@angular/router';
 import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-power-detail',
@@ -16,7 +17,8 @@ export class PowerDetailComponent {
   constructor (
     private route: ActivatedRoute, 
     private powerService: PowerService,
-    private heroService: HeroService
+    private heroService: HeroService,
+    private location: Location
   ) {}
 
   ngOnInit() : void{
@@ -33,6 +35,10 @@ export class PowerDetailComponent {
   getHeroes(): void {
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes);
+  }
+
+  goBack(): void{
+    this.location.back()
   }
 
 }
