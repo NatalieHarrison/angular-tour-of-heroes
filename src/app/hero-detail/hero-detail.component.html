@@ -17,7 +17,9 @@
 
     <ul class="heroes">
       <li *ngFor="let power of hero.powers">
+        <a routerLink="/powerdetail/{{power.id}}">
           <span class="badge">{{power.id}}</span> {{power.name}}
+        </a>
         <button type ="button" class="delete" title="delete hero" (click)="delete(hero, power.id)" >X</button>
       </li>
     </ul>
