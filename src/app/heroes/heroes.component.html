@@ -2,12 +2,17 @@
   <label for = "new-hero">Hero name: </label>
   <input id = "new-hero" #heroName/>
 </div>
+<div>
+  <app-city-select (selectionChangeEvent)="onCitySelected($event)" ></app-city-select>
+</div>
 
-<app-city-select (selectionChangeEvent)="onCitySelected($event)" ></app-city-select>
 <app-power-select (selectionChangeEvent)="onPowerSelected($event)"> </app-power-select>
-<button type="button" class="add-button" (click)="add(heroName.value, selectedCity, selectedPowers ); heroName.value=''; ">
+<div>
+  <button type="button" class="add-button" (click)="add(heroName.value, selectedCity, selectedPowers ); heroName.value=''; ">
   Add hero 
 </button>
+</div>
+
 
 
 <ul class="heroes">
