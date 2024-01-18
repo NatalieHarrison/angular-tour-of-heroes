@@ -16,11 +16,9 @@ import { Power } from '../power';
 import { Router } from 'express';
 
 @Component({
-  standalone: true, 
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrl: './hero-detail.component.css',
-  imports: [RouterModule,FormsModule, NgIf, UpperCasePipe, MatAutocompleteModule,MatInputModule, ReactiveFormsModule, NgFor ],
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;
