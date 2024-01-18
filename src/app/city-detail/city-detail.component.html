@@ -1,6 +1,15 @@
 <div *ngIf="city">
-  <h2>{{city.name}}</h2>
-  
+  <div>
+    <h2>{{city.name}}</h2>
+    <label> Edit City Name </label>
+    <input> 
+  </div>
+
+  <button type="button" >go back</button>
+  <button type = "button"  > save </button>
+
+  <div>
+  <label> List of Heroes living in {{city.name}}</label>
   <ul class = "heroes">
     <div *ngFor="let hero of heroes">
       <div *ngIf="hero.city.name === city.name">
@@ -10,5 +19,6 @@
       </div>
     </div>
   </ul>
+</div>
   
 </div>
