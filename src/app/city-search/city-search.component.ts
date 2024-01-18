@@ -9,8 +9,6 @@ import { CityService } from '../city.service';
   styleUrl: './city-search.component.css'
 })
 export class CitySearchComponent {
-  @Input() searchBoxValue: string = ''; //Input property for binding 
-  @Output() citySelected = new EventEmitter<{ name: string; id: number }>(); // Emit an object with name and id
   cities$!: Observable<City[]>; //
   private searchTerms = new Subject<string>();
 
@@ -25,9 +23,5 @@ export class CitySearchComponent {
     this.cities$ = this.searchTerms.pipe(
       debounceTime(300), distinctUntilChanged(), switchMap((term: string) => this.cityService.searchCities(term)),
     );
-  }
-
-  selectCity(city: City): void {
-    this.citySelected.emit({ name: city.name, id: city.id });
   }
 }
