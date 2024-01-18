@@ -21,6 +21,7 @@ export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;
   cities: City[] = [];
   powers: Power[] = [];
+  powerIn!: Power;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,7 +56,45 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
- 
+
+  add(): void {
+    console.log(this.powerIn)
+    let x = 0;
+        if(this.powerIn != null)
+        {
+            for(let power of this.powers){
+              
+                if (power.id == this.powerIn.id) {
+                  console.log(this.powers)
+                    for(let heroPower of this.hero!.powers) {
+                        if(heroPower.id == power.id) {
+                        x = 1;
+                
+                        }
+                    }
+                    if(x != 1) {
+                      console.log(this.hero)
+                        this.hero?.powers.push(power); 
+                        for(let z=0; z < this.hero!.powers.length; z++) {
+                            if(this.hero?.powers[z].id == 0) {
+                                this.hero.powers.splice(z,1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            window.alert("power must be selected");
+        }
+
+    
+
+  }
+
+  remove(): void {
+
+  }
   delete(hero: Hero, powerID: number ): void{
     if (hero?.powers){ //if hero is not null, check if hero.powers is null
       hero.powers = hero.powers.filter(p => p.id !== powerID);
