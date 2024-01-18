@@ -1,1 +1,10 @@
-<p>power-select works!</p>
+
+<mat-form-field>
+    <mat-label>Hero Power</mat-label>
+    <mat-select  multiple (selectionChange)="selectionChanged($event)">
+      @for (power of $powers | async; track power) {
+        <mat-option [value]="{id: power.id, name: power.name}" >{{power.name}}</mat-option>
+      } 
+      <!-- value is used to bind the value of each mat-option -->
+    </mat-select>
+  </mat-form-field>
