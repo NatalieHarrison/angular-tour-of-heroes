@@ -52,6 +52,20 @@ export class PowerService {
     );
   }
 
+  /* GET powers whose name contains search term */
+  searchPowers(term:string): Observable<Power[]>{
+    if (!term.trim()) {
+      //if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Power[]>(`${this.powersUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found heroes matching "${term}"`):
+        this.log(`no heroes matching "${term}"`)),
+      catchError(this.handleError<Power[]>('searchPowers',[]))
+    )
+  }
+
   addPower(power: Power): Observable<Power> {
     return this.http.post<Power>(this.powersUrl,power,this.httpOptions)
     .pipe(

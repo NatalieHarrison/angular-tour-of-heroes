@@ -11,7 +11,6 @@ import {MatInputModule} from '@angular/material/input';
 
 import { City } from '../city';
 import { CityService } from '../city.service';
-import { PowerSearchComponent } from '../power-search/power-search.component';
 import { PowerService } from '../power.service';
 import { Power } from '../power';
 
@@ -20,7 +19,7 @@ import { Power } from '../power';
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
   styleUrl: './hero-detail.component.css',
-  imports: [FormsModule, NgIf, UpperCasePipe, MatAutocompleteModule,MatInputModule, ReactiveFormsModule, PowerSearchComponent, NgFor ],
+  imports: [FormsModule, NgIf, UpperCasePipe, MatAutocompleteModule,MatInputModule, ReactiveFormsModule, NgFor ],
 })
 export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;

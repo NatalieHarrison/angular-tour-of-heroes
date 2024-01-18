@@ -42,6 +42,7 @@ import { PowerSelectComponent } from './power-select/power-select.component';
     PowerDetailComponent,
     CitySelectComponent,
     PowerSelectComponent,
+    PowerSearchComponent
   ],
   imports: [
     //Angular Modules
@@ -58,7 +59,6 @@ import { PowerSelectComponent } from './power-select/power-select.component';
     CommonModule,
     AppRoutingModule,
     HeroDetailComponent,
-    PowerSearchComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
