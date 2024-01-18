@@ -2,10 +2,10 @@
   <div>
     <h2>{{power.name}}</h2>
     <label> Edit Power Name </label>
-    <input> 
+    <input  id="power-name" [(ngModel)]="power.name" placeholder="name"> 
   </div>
   <button type="button" (click)="goBack()" >go back</button>
-  <button type = "button"  > save </button>
+  <button type = "button" (click)="save()"  > save </button>
 
   <div *ngFor="let hero of heroes">
       <div *ngFor="let powerItem of hero.powers">

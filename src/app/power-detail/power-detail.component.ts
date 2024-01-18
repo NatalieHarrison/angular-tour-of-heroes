@@ -41,4 +41,11 @@ export class PowerDetailComponent {
     this.location.back()
   }
 
+  save(): void{
+    if (this.power){
+      this.powerService.updatePower(this.power)
+        .subscribe( () => this.goBack())
+    }
+  }
+
 }
