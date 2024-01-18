@@ -27,6 +27,7 @@ import { CitySelectComponent } from './city-select/city-select.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Output, EventEmitter } from '@angular/core';
+import { PowerSelectComponent } from './power-select/power-select.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { Output, EventEmitter } from '@angular/core';
     PowersComponent,
     PowerDetailComponent,
     CitySelectComponent,
+    PowerSelectComponent,
   ],
   imports: [
     //Angular Modules
