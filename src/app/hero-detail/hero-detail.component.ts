@@ -1,19 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {NgIf, UpperCasePipe, NgFor, CommonModule} from '@angular/common';
-import { FormsModule, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Hero } from '../hero';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeroService } from '../hero.service';
-import { Observable } from 'rxjs';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
+
 
 import { City } from '../city';
 import { CityService } from '../city.service';
 import { PowerService } from '../power.service';
 import { Power } from '../power';
-import { Router } from 'express';
+
 
 @Component({
   selector: 'app-hero-detail',
@@ -65,7 +62,6 @@ export class HeroDetailComponent implements OnInit {
     }
 
   }
-
 
   save(): void{
     if (this.hero){
