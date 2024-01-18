@@ -4,7 +4,7 @@
 </div>
 
 <app-city-select (selectionChangeEvent)="onCitySelected($event)" ></app-city-select>
-<app-power-search (selectionChangeEvent)="onPowerSelected($event)"> </app-power-search>
+<app-power-select (selectionChangeEvent)="onPowerSelected($event)"> </app-power-select>
 <button type="button" class="add-button" (click)="add(heroName.value, selectedCity, selectedPowers ); heroName.value=''; ">
   Add hero 
 </button>
