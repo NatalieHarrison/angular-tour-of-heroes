@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // <-- NgModel lives here
 
 
 import { AppComponent } from './app.component';
@@ -22,12 +22,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PowersComponent } from './powers/powers.component';
 import { PowerDetailComponent } from './power-detail/power-detail.component';
 import { PowerSearchComponent } from './power-search/power-search.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgFor, NgIf, UpperCasePipe } from '@angular/common';
 import { CitySelectComponent } from './city-select/city-select.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { Output, EventEmitter } from '@angular/core';
 import { PowerSelectComponent } from './power-select/power-select.component';
+import { RouterModule } from '@angular/router';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +46,8 @@ import { PowerSelectComponent } from './power-select/power-select.component';
     PowerDetailComponent,
     CitySelectComponent,
     PowerSelectComponent,
-    PowerSearchComponent
+    PowerSearchComponent,
+    HeroDetailComponent
   ],
   imports: [
     //Angular Modules
@@ -58,7 +63,14 @@ import { PowerSelectComponent } from './power-select/power-select.component';
     ),
     CommonModule,
     AppRoutingModule,
-    HeroDetailComponent,
+    RouterModule,
+    NgIf,
+    NgFor,
+    UpperCasePipe,
+    MatAutocompleteModule,
+    MatInputModule,
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
