@@ -21,6 +21,7 @@ export class HeroDetailComponent implements OnInit {
   hero: Hero | undefined;
   cities: City[] = [];
   powers: Power[] = [];
+  newPower!: Power;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,7 +56,27 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
- 
+
+  add(): void {
+    if (this.newPower) {
+        for (let power of this.powers) { //power = power object so {id: 1, name: 'invisibility'}
+          let powerExists = false; 
+            if (power.id == this.newPower.id) {
+                for(let heroPower of this.hero!.powers) {// getting current hero powers object
+                    if(heroPower.id == power.id) { //checking if user selection is already in hero powers 
+                      console.log('current power', heroPower.id, 'power id', power.id)
+                      powerExists = true; 
+            
+                    }
+                }
+                if(!powerExists) {
+                    this.hero?.powers.push(power); 
+                }
+            }
+        }
+    }
+  }
+
   delete(hero: Hero, powerID: number ): void{
     if (hero?.powers){ //if hero is not null, check if hero.powers is null
       hero.powers = hero.powers.filter(p => p.id !== powerID);
@@ -64,6 +85,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save(): void{
+    console.log(this.hero)
     if (this.hero){
       this.heroService.updateHero(this.hero)
       .subscribe( ()=> this.goBack());
