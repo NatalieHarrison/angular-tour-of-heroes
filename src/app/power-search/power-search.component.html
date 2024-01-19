@@ -1,12 +1,13 @@
-<div id = "search-component">
-  <label><b>Power Search</b> </label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)"/>
-  
-  <ul class="search-result">
-    <li *ngFor="let power of powers$ | async">
-      <a routerLink="/powerdetail/{{power.id}}">
-        {{power.name}}
-      </a>
-    </li>
-  </ul>
+<div id="search-component">
+    <label><b>Power Search</b> </label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+    <ul class="search-result">
+        <li *ngFor="let power of powers$ | async">
+            <!-- Async is subscribed to powers$ observable; updates view to latest value-->
+            <a routerLink="/powerdetail/{{power.id}}">
+                {{power.name}}
+            </a>
+        </li>
+    </ul>
 </div>

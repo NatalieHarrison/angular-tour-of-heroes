@@ -5,33 +5,34 @@ import { Observable, Subject, debounce, debounceTime, distinctUntilChanged, swit
 
 
 @Component({
-  selector: 'app-power-search',
-  templateUrl: './power-search.component.html',
-  styleUrl: './power-search.component.css',
+    selector: 'app-power-search',
+    templateUrl: './power-search.component.html',
+    styleUrl: './power-search.component.css',
 })
 export class PowerSearchComponent {
-  powers$!: Observable<Power[]>;
-  private searchTerms = new Subject<string>();
+    powers$!: Observable<Power[]>;
+    private searchTerms = new Subject<string>();  //subject is a type of observable and observer
 
-  constructor(private powerService: PowerService) {}
+    constructor(private powerService: PowerService) { }
 
-  // Push a search term into the observable stream.
-  search(term: string): void {
-    this.searchTerms.next(term);
-  }
+    // Push a search term into the observable stream.
+    search(term: string): void {
+        this.searchTerms.next(term);
+    }
 
-  ngOnInit(): void {
-    this.powers$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
+    ngOnInit(): void {
+        this.powers$ = this.searchTerms.pipe(
+            // wait 300ms after each keystroke before considering the term
+            debounceTime(300),
 
-      // ignore new term if same as previous term
-      distinctUntilChanged(),
+            // ignore new term if same as previous term
+            distinctUntilChanged(),
 
-      // switch to new search observable each time the term changes
-      switchMap((term: string) => this.powerService.searchPowers(term)),
-    );
-  }
+            // switch to new search observable each time the term changes
+            switchMap((term: string) => this.powerService.searchPowers(term)),
+        );
+
+    }
 
 
 }
