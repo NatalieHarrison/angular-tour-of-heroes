@@ -62,14 +62,12 @@ export class HeroDetailComponent implements OnInit {
         for (let power of this.powers) { //power = power object so {id: 1, name: 'invisibility'}
           let powerExists = false; 
             if (power.id == this.newPower.id) {
-                for(let heroPower of this.hero!.powers) {// getting current hero powers object
-                    if(heroPower.id == power.id) { //checking if user selection is already in hero powers 
-                      console.log('current power', heroPower.id, 'power id', power.id)
+                for (let heroPower of this.hero!.powers) {// getting current hero powers object
+                    if (heroPower.id == power.id) { //checking if user selection is already in hero powers 
                       powerExists = true; 
-            
                     }
                 }
-                if(!powerExists) {
+                if (!powerExists) {
                     this.hero?.powers.push(power); 
                 }
             }
@@ -85,8 +83,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save(): void{
-    console.log(this.hero)
-    if (this.hero){
+    if (this.hero) {
       this.heroService.updateHero(this.hero)
       .subscribe( ()=> this.goBack());
     }
