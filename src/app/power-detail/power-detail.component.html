@@ -7,14 +7,16 @@
   <button type="button" (click)="goBack()" >go back</button>
   <button type = "button" (click)="save()"  > save </button>
 
-  <div *ngFor="let hero of heroes">
-      <div *ngFor="let powerItem of hero.powers">
-        <div *ngIf="powerItem.id === power.id">
-            {{hero.name}}
+  <div>
+    <label>Heroes with {{power.name}} Power</label>
+    <div class ="heroes" *ngFor="let hero of heroes">
+        <div *ngFor="let powerItem of hero.powers">
+          <div *ngIf="powerItem.id === power.id">
+            <a routerLink="/detail/{{hero.id}}">
+              <span class="badge">{{hero.id}}</span> {{hero.name}}
+            </a>
+          </div>
         </div>
-
-        
-        
+    </div>
   </div>
-
 </div>
