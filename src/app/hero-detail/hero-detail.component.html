@@ -13,7 +13,13 @@
       {{hero.city.name}}
     </div>
 
-    <app-city-select ></app-city-select>
+    Edit City:
+    <select class="custom-select" [(ngModel)]="editCity">  
+      <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+    </select>
+
+      <button class="button-add" type="button" (click)="edit()">Edit City</button>
+
 
 
 

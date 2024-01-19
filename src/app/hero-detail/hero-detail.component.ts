@@ -22,6 +22,7 @@ export class HeroDetailComponent implements OnInit {
   cities: City[] = [];
   powers: Power[] = [];
   newPower!: Power;
+  editCity!: City;
 
   constructor(
     private route: ActivatedRoute,
@@ -55,6 +56,12 @@ export class HeroDetailComponent implements OnInit {
   
   goBack(): void {
     this.location.back();
+  }
+
+  edit(): void{
+    if (this.editCity) {
+      this.hero!.city.name = this.editCity.name
+    }
   }
 
   add(): void {
