@@ -58,14 +58,13 @@ export class HeroDetailComponent implements OnInit {
   }
 
   add(): void {
-    console.log(this.powerIn)
     let x = 0;
         if(this.powerIn != null)
         {
             for(let power of this.powers){
               
                 if (power.id == this.powerIn.id) {
-                  console.log(this.powers)
+        
                     for(let heroPower of this.hero!.powers) {
                         if(heroPower.id == power.id) {
                         x = 1;
