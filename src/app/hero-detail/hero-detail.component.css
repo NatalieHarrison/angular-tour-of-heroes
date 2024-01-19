@@ -8,7 +8,7 @@
 
 input {
   display: block;
-  width: 100%;
+  width: 210px;
   padding: .5rem;
   margin: 1rem 0;
   box-sizing: border-box;
@@ -87,4 +87,23 @@ button.delete {
 button.delete:hover {
   background-color: #525252;
   color: white;
+}
+
+.custom-select-container {
+  display: flex;
+  align-items: center;
+}
+.custom-select {
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 200px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid;
+}
+.default-button {
+  padding: 10px 20px;
+  font-size: 16px;
 }
