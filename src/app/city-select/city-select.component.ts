@@ -25,5 +25,6 @@ export class CitySelectComponent {
 
   citySelectionChanged(event: MatSelectChange): void { //value emitting is the city id 
     this.selectionChangeEvent.emit(event.value)
+    console.log(event.value)
   }
 }

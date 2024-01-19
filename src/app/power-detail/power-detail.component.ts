@@ -44,8 +44,25 @@ export class PowerDetailComponent {
   save(): void{
     if (this.power){
       this.powerService.updatePower(this.power)
-        .subscribe( () => this.goBack())
+        .subscribe( () => {
+          this.goBack()
+
+          
+          this.heroService.getHeroes().subscribe(heroes => {
+            this.heroes = heroes
+            for (let hero of this.heroes) {
+              for (let power of hero.powers) {
+                if (power.id === this.power?.id) {
+                  power.name = this.power.name
+                  this.heroService.updateHero(hero).subscribe()
+                }
+              }
+            }
+          })
+        })
     }
+
+    
   }
 
 }

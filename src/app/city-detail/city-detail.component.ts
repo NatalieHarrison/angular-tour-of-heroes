@@ -47,10 +47,21 @@ export class CityDetailComponent {
   }
 
   save(): void{
+    //if hero.city.id matches with this.city.id 
     if (this.city){
       this.cityService.updateCity(this.city)
-        .subscribe( () => this.goBack());
+        .subscribe( () => { //doing the stuff below while it's updating in the city service
+          this.goBack()
+          this.heroService.getHeroes().subscribe(heroes => { //getting one obejct of heroes and declaring it 
+            this.heroes = heroes
+            for (let hero of this.heroes) {
+              if (hero.city.id === this.city?.id) {
+                hero.city = this.city
+                this.heroService.updateHero(hero).subscribe() //use after a call to service
+              }
+            }
+          }) 
+        })
     }
   }
-
 }

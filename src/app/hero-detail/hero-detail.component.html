@@ -14,6 +14,19 @@
     </div>
 
     <app-city-select ></app-city-select>
+
+
+
+    Add powers:
+    <select class="custom-select" [(ngModel)]="powerIn">  
+      <option *ngFor="let power of powers" [ngValue]="power">{{power.name}}</option>
+    </select>
+
+      <button class="button-add" type="button" (click)="add()">Add power</button>
+
+
+
+
     <div>
       <label for="hero-name">Powers: </label>
       <ul class="heroes">
@@ -26,10 +39,7 @@
       </ul>
     </div>
     <div>
-      Add powers:
-      <div *ngFor="let power of hero.powers">
-
-      </div>
+  
     </div>
     <button type="button" (click)="goBack()">go back</button>
     <button type = "button" (click)="save()" > save </button>

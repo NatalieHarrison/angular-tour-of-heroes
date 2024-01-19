@@ -9,7 +9,7 @@
 
   <div *ngFor="let hero of heroes">
       <div *ngFor="let powerItem of hero.powers">
-        <div *ngIf="powerItem.name === power.name">
+        <div *ngIf="powerItem.id === power.id">
             {{hero.name}}
         </div>
 
