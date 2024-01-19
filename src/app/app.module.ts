@@ -31,6 +31,7 @@ import { PowerSelectComponent } from './power-select/power-select.component';
 import { RouterModule } from '@angular/router';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { MatInputModule } from '@angular/material/input';
     MatAutocompleteModule,
     MatInputModule,
     ReactiveFormsModule,
-
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
