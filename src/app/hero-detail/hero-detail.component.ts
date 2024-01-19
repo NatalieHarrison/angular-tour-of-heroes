@@ -58,11 +58,11 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
-  edit(): void{
-    if (this.editCity) {
-      this.hero!.city.name = this.editCity.name
-    }
-  }
+  // edit(): void{
+  //   if (this.editCity) {
+  //     this.hero!.city.name = this.editCity.name
+  //   }
+  // }
 
   add(): void {
     if (this.newPower) {
@@ -90,6 +90,9 @@ export class HeroDetailComponent implements OnInit {
   }
 
   save(): void{
+    if (this.editCity) {
+      this.hero!.city.name = this.editCity.name
+    }
     if (this.hero) {
       this.heroService.updateHero(this.hero)
       .subscribe( ()=> this.goBack());
