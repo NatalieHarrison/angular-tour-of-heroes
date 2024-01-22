@@ -23,7 +23,8 @@ export class CitySelectComponent {
       .subscribe(cities => this.cities = cities);
   }
 
-  citySelectionChanged(event: MatSelectChange): void { //value emitting is the city id 
+  citySelectionChanged(event: MatSelectChange): void {
     this.selectionChangeEvent.emit(event.value)
+    console.log(event.value)
   }
 }
