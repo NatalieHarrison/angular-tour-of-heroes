@@ -4,8 +4,6 @@
     <div><span>id: </span>{{hero.id}}</div>
     <div>
       <label for="hero-name">Hero name: {{hero.name}} </label>
-
-      
     </div>
 
     <div>
@@ -24,25 +22,24 @@
         </li>
       </ul>
     </div>
+
     <div>
-  
-  <div >
-    <label>Make Edits to Your Hero:</label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+      <div >
+        <label>Make Edits to Your Hero:</label>
+        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
 
-    <mat-select class="custom-select" [(ngModel)]="editCity" placeholder="Select a New City">  
-      <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
-    </mat-select>
+        <mat-select class="custom-select" [(ngModel)]="editCity" placeholder="Select a New City">  
+          <mat-option *ngFor="let city of cities" [value]="city">{{city.name}}</mat-option>
+        </mat-select>
 
-    <mat-select class="custom-select" [(ngModel)]="newPower" placeholder="Add Powers">  
-      <mat-option *ngFor="let power of powers" [value]="power">{{power.name}}</mat-option>
-    </mat-select>
-  
-    <button class="default-button" type="button" (click)="add()">Add power</button>  
-  </div>
-  
-  
+        <mat-select class="custom-select" [(ngModel)]="newPower" placeholder="Add Powers">  
+          <mat-option *ngFor="let power of powers" [value]="power">{{power.name}}</mat-option>
+        </mat-select>
+      
+        <button class="default-button" type="button" (click)="add()">Add power</button>  
+      </div>
     </div>
+    
     <button class="default-button" type="button" (click)="goBack()"> Back </button>
     <button class="default-button" type = "button" (click)="save()"> Save </button>
   </div>
