@@ -11,7 +11,7 @@ import { MatSelectChange } from '@angular/material/select';
   styleUrl: './power-select.component.css'
 })
 export class PowerSelectComponent {
-  $powers: Observable<Power[]> 
+  $powers: Observable<Power[]> | null = null; 
   
 
   @Output() selectionChangeEvent = new EventEmitter<Power[]>();
