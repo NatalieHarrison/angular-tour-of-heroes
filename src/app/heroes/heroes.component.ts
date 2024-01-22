@@ -16,7 +16,7 @@ export class HeroesComponent implements OnInit {
 
 	constructor(private heroService: HeroService) {}
 
-	selectedPowers: Power[] = [{id: 0, name: ''}]
+	selectedPowers: Power[] = []
 
   selectedCity: {name: string; id: number} = { 
 		name: '', 
