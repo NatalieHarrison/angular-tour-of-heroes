@@ -9,10 +9,10 @@ import { CityService } from '../city.service';
   styleUrl: './city-search.component.css'
 })
 export class CitySearchComponent {
-  cities$!: Observable<City[]>; //
-  private searchTerms = new Subject<string>();
+  cities$!: Observable<City[]>; //$ not 100% necessary
+  private searchTerms = new Subject<string>(); //observer and observable 
 
-  constructor(private cityService: CityService) {}
+  constructor(private cityService: CityService) {} //constructor used to for dependency injection 
 
   // method called when user types into search input. Pushes term into observable stream 
   search(term:string): void{
@@ -22,6 +22,7 @@ export class CitySearchComponent {
   ngOnInit(): void{
     this.cities$ = this.searchTerms.pipe(
       debounceTime(300), distinctUntilChanged(), switchMap((term: string) => this.cityService.searchCities(term)),
+      //switch map used to manage and cancel ongoing searches based on new search terms
     );
   }
 }
