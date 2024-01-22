@@ -11,8 +11,8 @@ import { MatSelectChange } from '@angular/material/select';
   styleUrl: './power-select.component.css'
 })
 export class PowerSelectComponent {
-  $powers: Observable<Power[]> | null = null;
-  powersForm = new FormControl([]); //when no value is selected, it's an empty array. When a value is selected it should look like powers: [{id:2, name: 'super strength}, ]
+  $powers: Observable<Power[]> 
+  
 
   @Output() selectionChangeEvent = new EventEmitter<Power[]>();
 
