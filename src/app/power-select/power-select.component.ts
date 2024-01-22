@@ -6,28 +6,28 @@ import { FormControl } from '@angular/forms';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
-  selector: 'app-power-select',
-  templateUrl: './power-select.component.html',
-  styleUrl: './power-select.component.css'
+    selector: 'app-power-select',
+    templateUrl: './power-select.component.html',
+    styleUrl: './power-select.component.css'
 })
 export class PowerSelectComponent {
-  $powers: Observable<Power[]> | null = null; 
-  
-
-  @Output() selectionChangeEvent = new EventEmitter<Power[]>();
+    $powers: Observable<Power[]> | null = null; // holds an array of power objects 
 
 
-  constructor( private powerService: PowerService){}
+    @Output() selectionChangeEvent = new EventEmitter<Power[]>();
 
-  ngOnInit(): void {
-    this.getPowers();
-  }
 
-  getPowers(): void{
-    this.$powers = this.powerService.getPowers();
-  }
+    constructor(private powerService: PowerService) { }
 
-  selectionChanged(event: MatSelectChange): void{
-    this.selectionChangeEvent.emit(event.value)
-  }
+    ngOnInit(): void {
+        this.getPowers();
+    }
+
+    getPowers(): void {
+        this.$powers = this.powerService.getPowers();
+    }
+
+    selectionChanged(event: MatSelectChange): void {
+        this.selectionChangeEvent.emit(event.value)
+    }
 }

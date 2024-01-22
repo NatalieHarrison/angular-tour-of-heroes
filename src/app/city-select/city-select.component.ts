@@ -4,26 +4,26 @@ import { CityService } from '../city.service';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
-  selector: 'app-city-select',
-  templateUrl: './city-select.component.html',
-  styleUrl: './city-select.component.css'
+    selector: 'app-city-select',
+    templateUrl: './city-select.component.html',
+    styleUrl: './city-select.component.css'
 })
 export class CitySelectComponent {
-  cities: City[] = [];
-  @Output() selectionChangeEvent =  new EventEmitter<{ name: string; id: number }>();
+    cities: City[] = [];
+    @Output() selectionChangeEvent = new EventEmitter<{ name: string; id: number }>();
 
-  constructor(private cityService: CityService){}
+    constructor(private cityService: CityService) { }
 
-  ngOnInit(): void{
-    this.getCities();
-  }
+    ngOnInit(): void {
+        this.getCities();
+    }
 
-  getCities(): void {
-    this.cityService.getCities()
-      .subscribe(cities => this.cities = cities);
-  }
+    getCities(): void {
+        this.cityService.getCities()
+            .subscribe(cities => this.cities = cities);
+    }
 
-  citySelectionChanged(event: MatSelectChange): void {
-    this.selectionChangeEvent.emit(event.value)
-  }
+    citySelectionChanged(event: MatSelectChange): void {
+        this.selectionChangeEvent.emit(event.value)
+    }
 }
