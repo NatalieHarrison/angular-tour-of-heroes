@@ -1,9 +1,7 @@
 <mat-form-field>
-    <mat-select placeholder="Select a Hero City" (selectionChange) = "citySelectionChanged($event)">
-      <mat-option *ngFor="let city of cities" [value]="{ name: city.name, id: city.id }">
-        {{ city.name }}
-      </mat-option>
+    <mat-select placeholder="Select a Hero City" (selectionChange)="citySelectionChanged($event)">
+        <mat-option *ngFor="let city of cities" [value]="{ name: city.name, id: city.id }">
+            {{ city.name }}
+        </mat-option>
     </mat-select>
-  </mat-form-field>
-  
-  
+</mat-form-field>
